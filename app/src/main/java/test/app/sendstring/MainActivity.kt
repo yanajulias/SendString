@@ -16,6 +16,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import test.app.sendstring.ui.theme.SendStringTheme
@@ -72,19 +73,6 @@ fun SendStringApp() {
 
 @Composable
 fun DataServiceContent(callback: DataCallback) {
-    ServiceContent(callback)
-}
-
-@Composable
-fun ShowReceivedData(data: String) {
-    Text(
-        text = "Data yang diterima dari service: $data",
-        modifier = Modifier.padding(16.dp)
-    )
-}
-
-@Composable
-fun ServiceContent(callback: DataCallback) {
     Column {
         Button(
             onClick = {
@@ -94,6 +82,15 @@ fun ServiceContent(callback: DataCallback) {
             Text(text = "Kirim Data ke Activity")
         }
     }
+}
+
+@Composable
+fun ShowReceivedData(data: String) {
+    Text(
+        text = "Data yang diterima dari service: $data",
+        modifier = Modifier.padding(16.dp),
+        textAlign = TextAlign.Center
+    )
 }
 
 @Preview(showSystemUi = true)
